@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import TanstackProvider from "@/providers/TanstackProvider";
+import { ProductsProvider } from "@/providers/ProductsProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MKS",
@@ -17,9 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
+      <body className={montserrat.className}>
         <TanstackProvider>
+        <ProductsProvider>
           {children}
+        </ProductsProvider>
         </TanstackProvider>
       </body>
     </html>
