@@ -32,7 +32,8 @@ export const ShoppingCard = ({ product }: ShoppingCardProps) => {
     const updatedCart = shopList.map((item) =>
       item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
     );
-    setShopList(updatedCart);
+    const filteredCart = updatedCart.filter((item) => item.quantity > 0);
+    setShopList(filteredCart);
   };
 
   const removeItemsAllFromCart = () => {
@@ -46,7 +47,7 @@ export const ShoppingCard = ({ product }: ShoppingCardProps) => {
         <IoIosCloseCircle size={30} color="#000000"></IoIosCloseCircle>
       </button>
       <div className="div__img">
-        <img src={product.photo} alt="" />
+        <img src={product.photo} alt="imagem do produto" />
       </div>
       <div className="div__name">
         <StyledProductTitleModal>{product.name}</StyledProductTitleModal>

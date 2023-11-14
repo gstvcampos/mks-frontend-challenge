@@ -5,7 +5,7 @@ export const StyledLi = styled.li`
   flex-direction: column;
   text-align: start;
   width: 225px;
-  height: 320px;
+  height: 300px;
 
   box-shadow: 0px 2px 8px 0px #00000022;
   border-radius: 8px;
@@ -30,12 +30,27 @@ export const StyledLi = styled.li`
     align-items: flex-start;
 
     gap: 0.5rem;
-    padding: 1.25rem;
+    padding: 0.5rem;
   }
   .div__title {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .div__title > h3 {
+    width: 130px;
+  }
+
+  .price {
+    max-width: 100%;
+    border-radius: 8px;
+    padding: 0.3rem;
+    font-size: .9375rem;
+    font-weight: 700;
+    color: var(--color-white);
+
+    background-color: var(--color-gray-200);
   }
 
   button {

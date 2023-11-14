@@ -39,8 +39,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className="div__information">
           <div className="div__title">
             <StyledTitleProduct>{product.name}</StyledTitleProduct>
-            <p className="price">
-              <FormattedPrice price={product.price} />
+            <p className="price">R$
+              {parseFloat(product.price).toLocaleString("pt-BR", {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 2,
+              })}
             </p>
           </div>
           <StyledText>{product.description}</StyledText>
