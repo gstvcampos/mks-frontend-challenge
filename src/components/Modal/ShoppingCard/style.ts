@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const StyledLi = styled.li`
   position: relative;
@@ -11,7 +11,7 @@ export const StyledLi = styled.li`
   margin: 0 auto;
 
   background-color: var(--color-white);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 
   .btn__close {
     position: absolute;
@@ -20,8 +20,8 @@ export const StyledLi = styled.li`
   }
 
   img {
-  max-width: 100%;
-  max-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .div__img {
@@ -33,45 +33,45 @@ export const StyledLi = styled.li`
     height: 90px;
   }
 
-  .div__name{
+  .div__name {
     width: 120px;
   }
 
   .qtd__container {
     display: flex;
     flex-direction: column;
-    gap: .25rem;
+    gap: 0.25rem;
     width: 100px;
   }
 
-  .qtd__item{
+  .qtd__item {
     display: flex;
     justify-content: space-around;
 
     width: 50px;
-    
-    border: .0187rem solid var(--color-gray-300);
-    border-radius: .25rem;
+
+    border: 0.0187rem solid var(--color-gray-300);
+    border-radius: 0.25rem;
   }
 
   .btn__remove {
     width: 100%;
     border: none;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     background-color: var(--color-white);
   }
 
   span {
     width: 100%;
     text-align: center;
-    font-size: .625rem;
+    font-size: 0.625rem;
     font-weight: 400;
   }
 
   .btn__add {
     width: 100%;
     border: none;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     background-color: var(--color-white);
   }
-`
+`;

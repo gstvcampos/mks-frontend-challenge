@@ -46,7 +46,7 @@ export const StyledLi = styled.li`
     max-width: 100%;
     border-radius: 8px;
     padding: 0.3rem;
-    font-size: .9375rem;
+    font-size: 0.9375rem;
     font-weight: 700;
     color: var(--color-white);
 
@@ -61,5 +61,4 @@ export const StyledLi = styled.li`
     left: 0;
     bottom: 0;
   }
-
-`
+`;

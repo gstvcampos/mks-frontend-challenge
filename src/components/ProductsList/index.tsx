@@ -8,10 +8,14 @@ import { LoadingSpinner } from "../LoagindSpinner";
 
 export const ProductsList = () => {
   const { productsList, isLoading } = useContext(ProductsContext);
-    
-  return  isLoading ? <LoadingSpinner/> : (
+
+  return isLoading ? (
+    <LoadingSpinner />
+  ) : (
     <StyledUl>
-      {productsList?.map((product) => <ProductCard key={product.id} product={product}/>)}
+      {productsList?.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </StyledUl>
-  )
+  );
 };

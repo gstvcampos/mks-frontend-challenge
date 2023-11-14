@@ -6,10 +6,10 @@ export const ModalOverlay = styled.div`
   right: 0;
   width: 100%;
   height: 100%;
-  
+
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 9999;
-`
+`;
 
 export const ModalWrapper = styled.div`
   position: fixed;
@@ -19,13 +19,13 @@ export const ModalWrapper = styled.div`
   height: 100%;
   background-color: var(--color-primary);
 
-  header{
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     height: 110px;
-    padding: .8125rem 1.375rem;
+    padding: 0.8125rem 1.375rem;
   }
 
   .btn__close {
@@ -53,16 +53,16 @@ export const ModalWrapper = styled.div`
     font-weight: 700;
 
     padding: 2rem 8.52rem;
-    
+
     color: var(--color-white);
     background-color: var(--color-black);
   }
-`
+`;
 
 export const StyledUl = styled.ul`
   display: flex;
   flex-direction: column;
-  
+
   list-style: none;
   gap: 1.125rem;
-`
+`;

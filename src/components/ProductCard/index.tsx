@@ -1,7 +1,6 @@
 "use client";
 
 import { StyledLi } from "./style";
-import { FormattedPrice } from "../FormattedPrice";
 import { StyledButtonDefault } from "@/styles/Button";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { StyledText, StyledTitleProduct } from "@/styles/Typography";
@@ -23,7 +22,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       setShopList([...shopList, { ...product, quantity: 1 }]);
     } else {
       const updatedCart = shopList.map((item) =>
-      item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       setShopList(updatedCart);
     }
@@ -39,7 +38,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className="div__information">
           <div className="div__title">
             <StyledTitleProduct>{product.name}</StyledTitleProduct>
-            <p className="price">R$
+            <p className="price">
+              R$
               {parseFloat(product.price).toLocaleString("pt-BR", {
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 2,

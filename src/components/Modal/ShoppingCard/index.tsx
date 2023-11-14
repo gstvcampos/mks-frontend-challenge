@@ -5,7 +5,11 @@ import { ProductsContext } from "@/providers/ProductsContext";
 import { IProductShop } from "@/providers/@types";
 import { IoIosCloseCircle } from "react-icons/io";
 import { StyledLi } from "./style";
-import { StyledProductTitleModal, StyledQtdModal, StyledValueModal } from "@/styles/Typography";
+import {
+  StyledProductTitleModal,
+  StyledQtdModal,
+  StyledValueModal,
+} from "@/styles/Typography";
 import { FormattedPrice } from "@/components/FormattedPrice";
 
 interface ShoppingCardProps {
@@ -55,9 +59,13 @@ export const ShoppingCard = ({ product }: ShoppingCardProps) => {
       <div className="qtd__container">
         <StyledQtdModal>Qtd:</StyledQtdModal>
         <div className="qtd__item">
-          <button className="btn__remove" onClick={removeFromCart}>-</button>
+          <button className="btn__remove" onClick={removeFromCart}>
+            -
+          </button>
           <span>{product.quantity}</span>
-          <button className="btn__add" onClick={addToCart}>+</button>
+          <button className="btn__add" onClick={addToCart}>
+            +
+          </button>
         </div>
       </div>
       <StyledValueModal>

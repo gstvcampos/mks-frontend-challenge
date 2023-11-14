@@ -7,7 +7,7 @@ import { useOutClick } from "@/hooks/useOutClick";
 import { ModalOverlay, ModalWrapper, StyledUl } from "./style";
 import { IoIosCloseCircle } from "react-icons/io";
 import { FormattedPrice } from "../FormattedPrice";
-import { StyledSubTitleModal, StyledTotal } from "@/styles/Typography";
+import { StyledSubTitleModal } from "@/styles/Typography";
 import { ShoppingCard } from "./ShoppingCard";
 
 export const Modal = () => {
@@ -22,7 +22,7 @@ export const Modal = () => {
   const { shopList, setIsOpen } = useContext(ProductsContext);
 
   const total = shopList.reduce((accumulator, product) => {
-    return accumulator + (parseFloat(product.price) * product.quantity);
+    return accumulator + parseFloat(product.price) * product.quantity;
   }, 0);
 
   return (
@@ -30,21 +30,27 @@ export const Modal = () => {
       <ModalWrapper ref={modalRef}>
         <header>
           <StyledSubTitleModal>Carrinho de compras</StyledSubTitleModal>
-          <button className="btn__close" onClick={() => setIsOpen(false)} ref={buttonRef}>
+          <button
+            className="btn__close"
+            onClick={() => setIsOpen(false)}
+            ref={buttonRef}
+          >
             <IoIosCloseCircle size={40} color="#000000"></IoIosCloseCircle>
           </button>
         </header>
 
         <StyledUl>
           {shopList.map((product) => (
-            <ShoppingCard key={product.id} product={product}/>
+            <ShoppingCard key={product.id} product={product} />
           ))}
         </StyledUl>
 
         <footer>
           <div className="total__container">
             <StyledSubTitleModal>Total</StyledSubTitleModal>
-            <StyledSubTitleModal><FormattedPrice price={total} /></StyledSubTitleModal>
+            <StyledSubTitleModal>
+              <FormattedPrice price={total} />
+            </StyledSubTitleModal>
           </div>
 
           <button className="btn__buy">Finalizar Compra</button>
