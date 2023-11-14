@@ -7,7 +7,8 @@ import { useOutClick } from "@/hooks/useOutClick";
 import { ModalOverlay, ModalWrapper, StyledUl } from "./style";
 import { IoIosCloseCircle } from "react-icons/io";
 import { FormattedPrice } from "../FormattedPrice";
-import { StyledTotal } from "@/styles/Typography";
+import { StyledSubTitleModal, StyledTotal } from "@/styles/Typography";
+import { ShoppingCard } from "./ShoppingCard";
 
 export const Modal = () => {
   const modalRef = useOutClick(() => {
@@ -28,7 +29,7 @@ export const Modal = () => {
     <ModalOverlay role="dialog">
       <ModalWrapper ref={modalRef}>
         <header>
-          <h2>Carrinho de compras</h2>
+          <StyledSubTitleModal>Carrinho de compras</StyledSubTitleModal>
           <button className="btn__close" onClick={() => setIsOpen(false)} ref={buttonRef}>
             <IoIosCloseCircle size={40} color="#000000"></IoIosCloseCircle>
           </button>
@@ -36,14 +37,14 @@ export const Modal = () => {
 
         <StyledUl>
           {shopList.map((product) => (
-            <p>aaa</p>
+            <ShoppingCard key={product.id} product={product}/>
           ))}
         </StyledUl>
 
         <footer>
           <div className="total__container">
-            <StyledTotal>Total</StyledTotal>
-            <StyledTotal><FormattedPrice price={total} /></StyledTotal>
+            <StyledSubTitleModal>Total</StyledSubTitleModal>
+            <StyledSubTitleModal><FormattedPrice price={total} /></StyledSubTitleModal>
           </div>
 
           <button className="btn__buy">Finalizar Compra</button>

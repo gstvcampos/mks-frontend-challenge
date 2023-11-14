@@ -17,14 +17,30 @@ export const StyledTitleProduct = styled.h3`
     color: var(--color-gray-100);
 `
 
-export const StyledTotal = styled.p`
+export const StyledSubTitleModal = styled.p`
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--color-white);
+`
+
+export const StyledProductTitleModal = styled.p`
+    font-size: .8125rem;
+    font-weight: 400;
+    color: var(--color-gray-100);
 `
 
 export const StyledText = styled.p`
     font-size: .625rem;
     font-weight: 300;
     color: var(--color-gray-100);
+`
+export const StyledQtdModal = styled.p`
+    font-size: .3125rem;
+    font-weight: 400;
+    color: var(--color-black);
+`
+export const StyledValueModal = styled.p`
+    font-size: .875rem;
+    font-weight: 700;
+    color: var(--color-black);
 `
