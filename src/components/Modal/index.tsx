@@ -20,7 +20,7 @@ export const Modal = () => {
   const { shopList, setIsOpen } = useContext(ProductsContext);
 
   const total = shopList.reduce((accumulator, product) => {
-    return accumulator + parseFloat(product.price);
+    return accumulator + (parseFloat(product.price) * product.quantity);
   }, 0);
 
   return (

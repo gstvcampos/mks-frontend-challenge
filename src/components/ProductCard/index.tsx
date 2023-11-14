@@ -6,13 +6,29 @@ import { StyledButtonDefault } from "@/styles/Button";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { StyledText, StyledTitleProduct } from "@/styles/Typography";
 import { IProduct } from "@/providers/@types";
-import { addToCart } from "@/hooks/addToCart";
+import { useContext } from "react";
+import { ProductsContext } from "@/providers/ProductsContext";
 
 interface ProductCardProps {
   product: IProduct;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
+  const { shopList, setShopList } = useContext(ProductsContext);
+
+  const addToCart = () => {
+    const existingProduct = shopList.find((item) => item.id === product.id);
+
+    if (!existingProduct) {
+      setShopList([...shopList, { ...product, quantity: 1 }]);
+    } else {
+      const updatedCart = shopList.map((item) =>
+      item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setShopList(updatedCart);
+    }
+  };
+
   return (
     <>
       <StyledLi>
@@ -28,7 +44,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </p>
           </div>
           <StyledText>{product.description}</StyledText>
-          <StyledButtonDefault onClick={() => addToCart({ product })}>
+          <StyledButtonDefault onClick={addToCart}>
             <RiShoppingBag3Line color="#FFFFFF" size={25}></RiShoppingBag3Line>
             COMPRAR
           </StyledButtonDefault>

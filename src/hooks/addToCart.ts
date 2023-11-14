@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { ProductsContext } from "@/providers/ProductsContext";
 import { IProduct } from "@/providers/@types";
 
+
 interface ProductCardProps {
   product: IProduct;
 }

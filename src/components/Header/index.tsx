@@ -5,15 +5,17 @@ import { ProductsContext } from "@/providers/ProductsContext";
 import { StyledSubTitle, StyledTitle } from "@/styles/Typography";
 import { FaShoppingCart } from "react-icons/fa";
 import { StyledHeader } from "./style";
+import { Modal } from "../Modal";
 
 export const Header = () => {
-
   const { isOpen, shopList, setIsOpen } = useContext(ProductsContext);
   const handleOpenModal = () => {
     setIsOpen(true);
   };
 
-  const items = shopList.length;
+  const items = shopList.reduce((accumulator, product) => {
+    return accumulator + product.quantity;
+  }, 0);
 
   return (
     <StyledHeader>
@@ -28,13 +30,7 @@ export const Header = () => {
           <span>{items}</span>
         </a>
 
-        {/* {isOpen ? (
-              <Modal
-                setIsOpen={setIsOpen}
-                listShopping={listShopping}
-                setListShopping={setListShopping}
-              ></Modal>
-            ) : null} */}
+        {isOpen ? <Modal /> : null}
       </div>
     </StyledHeader>
   );
