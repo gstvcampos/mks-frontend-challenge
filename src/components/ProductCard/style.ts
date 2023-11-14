@@ -32,9 +32,18 @@ export const StyledLi = styled.li`
     gap: 0.5rem;
     padding: 1.25rem;
   }
+  .div__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   button {
+    border-radius: 0px 0px 8px 8px;
+
     position: absolute;
+    right: 0;
+    left: 0;
     bottom: 0;
   }
 

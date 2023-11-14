@@ -1,3 +1,5 @@
+"use client";
+
 import { ToastContainer, toast } from "react-toastify";
 import { StyledLi } from "./style";
 import { FormattedPrice } from "../FormattedPrice";
@@ -10,6 +12,32 @@ import { StyledText, StyledTitleProduct } from "@/styles/Typography";
 export const ProductCard = ({ product }) => {
   const { listShopping, setListShopping } = useContext(ProductsContext);
 
+  const isProductInCart = listShopping.some((item) => item.id === product.id);
+
+  const addToCart = () => {
+    if (!isProductInCart) {
+      setListShopping([...listShopping, { ...product, quantity: 1 }]);
+      toast.success("Item adicionado ao carrinho!", {
+        autoClose: 1500,
+        pauseOnHover: false,
+        draggable: false,
+      });
+    } else {
+      const updatedCart = listShopping.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+
+      setListShopping(updatedCart);
+
+      // Adicionalmente, você pode exibir uma mensagem informando que a quantidade foi atualizada.
+      toast.info("Quantidade atualizada no carrinho!", {
+        autoClose: 1500,
+        pauseOnHover: false,
+        draggable: false,
+      });
+    }
+  };
+
   return (
     <>
       <StyledLi>
@@ -18,23 +46,14 @@ export const ProductCard = ({ product }) => {
         </div>
 
         <div className="div__information">
-          <div>
+          <div className="div__title">
             <StyledTitleProduct>{product.name}</StyledTitleProduct>
-            <p>
+            <p className="price">
               <FormattedPrice price={product.price} />
             </p>
           </div>
-            <StyledText>{product.description}</StyledText>
-          <StyledButtonDefault
-            onClick={() => {
-              setListShopping([...listShopping, product]);
-              toast.success("Item adicionado ao carrinho!", {
-                autoClose: 1500,
-                pauseOnHover: false,
-                draggable: false,
-              });
-            }}
-          >
+          <StyledText>{product.description}</StyledText>
+          <StyledButtonDefault onClick={addToCart}>
             <RiShoppingBag3Line color="#FFFFFF" size={25}></RiShoppingBag3Line>
             COMPRAR
           </StyledButtonDefault>
@@ -43,4 +62,4 @@ export const ProductCard = ({ product }) => {
       <ToastContainer />
     </>
   );
-}
+};

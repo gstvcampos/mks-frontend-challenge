@@ -9,7 +9,7 @@ export const ProductsList = () => {
   const { productsList } = useContext(ProductsContext);
   return (
     <StyledUl>
-      {productsList.map((product) => <ProductCard product={product}/>)}
+      {productsList.map((product) => <ProductCard key={product.id} product={product}/>)}
     </StyledUl>
   )
 };

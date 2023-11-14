@@ -3,13 +3,14 @@
 import { createContext, useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/services/api";
+import { IProduct, IProductContext } from "./@types";
 
-export const ProductsContext = createContext({});
+export const ProductsContext = createContext({} as IProductContext);
 
-export const ProductsProvider = ({ children }: any) => {
-  const [productsList, setproductsList] = useState([]);
-  const [shopList, setshopList] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+export const ProductsProvider = ({ children }: { children: React.ReactNode }) => {
+  const [productsList, setproductsList] = useState<IProduct[]>([]);
+  const [shopList, setshopList] = useState<IProduct[]>([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const {} = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
