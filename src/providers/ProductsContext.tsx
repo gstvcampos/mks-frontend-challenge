@@ -3,13 +3,14 @@
 import { createContext, useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/services/api";
-import { IProduct, IProductContext } from "./@types";
+import { IProduct, IProductContext, IProductShop } from "./@types";
 
 export const ProductsContext = createContext({} as IProductContext);
 
 export const ProductsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [productsList, setproductsList] = useState<IProduct[]>([]);
-  const [shopList, setshopList] = useState<IProduct[]>([]);
+
+  const [productsList, setProductsList] = useState<IProduct[]>([]);
+  const [shopList, setShopList] = useState<IProductShop[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const {} = useQuery({
     queryKey: ["products"],
@@ -17,7 +18,7 @@ export const ProductsProvider = ({ children }: { children: React.ReactNode }) =>
       const { data } = await api.get(
         "/products?page=1&rows=8&sortBy=name&orderBy=ASC"
       );
-      setproductsList(data.products);
+      setProductsList(data.products);
     },
   });
 
@@ -25,11 +26,11 @@ export const ProductsProvider = ({ children }: { children: React.ReactNode }) =>
     <ProductsContext.Provider
       value={{
         productsList,
-        setproductsList,
+        setProductsList,
         isOpen,
         setIsOpen,
         shopList,
-        setshopList,
+        setShopList,
       }}
     >
       {children}

@@ -1,6 +1,5 @@
 "use client";
 
-import { ToastContainer, toast } from "react-toastify";
 import { StyledLi } from "./style";
 import { FormattedPrice } from "../FormattedPrice";
 import { StyledButtonDefault } from "@/styles/Button";
@@ -8,33 +7,25 @@ import { RiShoppingBag3Line } from "react-icons/ri";
 import { useContext } from "react";
 import { ProductsContext } from "@/providers/ProductsContext";
 import { StyledText, StyledTitleProduct } from "@/styles/Typography";
+import { IProduct } from "@/providers/@types";
 
-export const ProductCard = ({ product }) => {
-  const { listShopping, setListShopping } = useContext(ProductsContext);
+interface ProductCardProps {
+  product: IProduct;
+}
 
-  const isProductInCart = listShopping.some((item) => item.id === product.id);
+export const ProductCard = ({ product }: ProductCardProps) => {
+  const { shopList, setShopList } = useContext(ProductsContext);
+
+  const existingProduct = shopList.find((item) => item.id === product.id);
 
   const addToCart = () => {
-    if (!isProductInCart) {
-      setListShopping([...listShopping, { ...product, quantity: 1 }]);
-      toast.success("Item adicionado ao carrinho!", {
-        autoClose: 1500,
-        pauseOnHover: false,
-        draggable: false,
-      });
+    if (!existingProduct) {
+      setShopList([...shopList, { ...product, quantity: 1 }]);
     } else {
-      const updatedCart = listShopping.map((item) =>
+      const updatedCart = shopList.map((item) =>
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
-
-      setListShopping(updatedCart);
-
-      // Adicionalmente, você pode exibir uma mensagem informando que a quantidade foi atualizada.
-      toast.info("Quantidade atualizada no carrinho!", {
-        autoClose: 1500,
-        pauseOnHover: false,
-        draggable: false,
-      });
+      setShopList(updatedCart);
     }
   };
 
@@ -59,7 +50,6 @@ export const ProductCard = ({ product }) => {
           </StyledButtonDefault>
         </div>
       </StyledLi>
-      <ToastContainer />
     </>
   );
 };

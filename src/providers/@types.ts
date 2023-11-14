@@ -9,11 +9,16 @@ export interface IProduct {
     updatedAt: string;
 }
 
+export interface IProductShop {
+    product: IProduct;
+    quantity: number;
+}
+
 export interface IProductContext {
     productsList: IProduct[];
-    setproductsList: React.Dispatch<React.SetStateAction<IProduct[]>>;
+    setProductsList: React.Dispatch<React.SetStateAction<IProduct[]>>;
     isOpen: boolean;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    shopList: IProduct[];
-    setshopList: React.Dispatch<React.SetStateAction<IProduct[]>>;
+    shopList: IProductShop[];
+    setshopList: React.Dispatch<React.SetStateAction<IProductShop[]>>;
 }
