@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
-import TanstackProvider from "@/providers/TanstackProvider";
-import { ProductsProvider } from "@/providers/ProductsProvider";
+import { TanstackProvider } from "@/providers/TanstackProvider";
+import { ProductsProvider } from "@/providers/ProductsContext";
+import StyledComponentsRegistry from "./register";
+import { GlobalStyle } from "@/styles/GlobalStyles";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -20,9 +21,12 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={montserrat.className}>
         <TanstackProvider>
-        <ProductsProvider>
-          {children}
-        </ProductsProvider>
+          <ProductsProvider>
+            <StyledComponentsRegistry>
+              <GlobalStyle />
+              {children}
+            </StyledComponentsRegistry>
+          </ProductsProvider>
         </TanstackProvider>
       </body>
     </html>

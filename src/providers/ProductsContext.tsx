@@ -1,10 +1,10 @@
 "use client";
 
-import { api } from "@/services/api";
+import { createContext, useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { createContext, useState } from "react";
+import { api } from "@/services/api";
 
-export const NewsContext = createContext({});
+export const ProductsContext = createContext({});
 
 export const ProductsProvider = ({ children }: any) => {
   const [productsList, setproductsList] = useState([]);
@@ -21,7 +21,7 @@ export const ProductsProvider = ({ children }: any) => {
   });
 
   return (
-    <NewsContext.Provider
+    <ProductsContext.Provider
       value={{
         productsList,
         setproductsList,
@@ -32,6 +32,6 @@ export const ProductsProvider = ({ children }: any) => {
       }}
     >
       {children}
-    </NewsContext.Provider>
+    </ProductsContext.Provider>
   );
 };
