@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import { ProductsContext } from "@/providers/ProductsContext";
-import { useKeyDowm } from "@/hooks/useKeydowm";
+import { useKeyDowm } from "@/hooks/useKeydown";
 import { useOutClick } from "@/hooks/useOutClick";
 import { ModalOverlay, ModalWrapper, StyledUl } from "./style";
 import { IoIosCloseCircle } from "react-icons/io";

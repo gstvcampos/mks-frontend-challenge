@@ -9,16 +9,15 @@ export const ProductsContext = createContext({} as IProductContext);
 
 export const ProductsProvider = ({ children }: { children: React.ReactNode }) => {
 
-  const [productsList, setProductsList] = useState<IProduct[]>([]);
   const [shopList, setShopList] = useState<IProductShop[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const {} = useQuery({
+  const { isLoading, data:productsList } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const { data } = await api.get(
         "/products?page=1&rows=8&sortBy=name&orderBy=ASC"
       );
-      setProductsList(data.products);
+      return data.products
     },
   });
 
@@ -26,7 +25,7 @@ export const ProductsProvider = ({ children }: { children: React.ReactNode }) =>
     <ProductsContext.Provider
       value={{
         productsList,
-        setProductsList,
+        isLoading,
         isOpen,
         setIsOpen,
         shopList,

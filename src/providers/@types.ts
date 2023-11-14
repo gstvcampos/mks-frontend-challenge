@@ -15,7 +15,7 @@ export interface IProductShop extends IProduct {
 
 export interface IProductContext {
     productsList: IProduct[];
-    setProductsList: React.Dispatch<React.SetStateAction<IProduct[]>>;
+    isLoading: boolean;
     isOpen: boolean;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     shopList: IProductShop[];

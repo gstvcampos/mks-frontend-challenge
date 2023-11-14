@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export const useKeyDowm = (keyId: string, callback: (element: HTMLDivElement) => void) => {
+export const useKeyDown = (keyId: string, callback: (element: HTMLDivElement) => void) => {
     const ref = useRef(null);
 
   useEffect(() => {
