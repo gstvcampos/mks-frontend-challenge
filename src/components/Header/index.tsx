@@ -7,8 +7,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { StyledHeader } from "./style";
 
 export const Header = () => {
-  const { isOpen, shopList, setIsOpen } = useContext(ProductsContext);
 
+  const { isOpen, shopList, setIsOpen } = useContext(ProductsContext);
   const handleOpenModal = () => {
     setIsOpen(true);
   };

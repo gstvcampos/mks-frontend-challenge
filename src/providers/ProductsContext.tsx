@@ -16,7 +16,7 @@ export const ProductsProvider = ({ children }: any) => {
       const { data } = await api.get(
         "/products?page=1&rows=8&sortBy=name&orderBy=ASC"
       );
-      return data.products;
+      setproductsList(data.products);
     },
   });
 
@@ -28,7 +28,7 @@ export const ProductsProvider = ({ children }: any) => {
         isOpen,
         setIsOpen,
         shopList,
-        setshopList
+        setshopList,
       }}
     >
       {children}

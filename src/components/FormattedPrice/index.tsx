@@ -1,4 +1,4 @@
-const FormattedPrice = ({ price }) => {
+export const FormattedPrice = ({ price }) => {
   const formattedPrice = price.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
@@ -6,5 +6,3 @@ const FormattedPrice = ({ price }) => {
 
   return <>{formattedPrice}</>;
 };
-
-export default FormattedPrice;
