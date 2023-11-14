@@ -14,6 +14,7 @@ export const StyledHeader = styled.header`
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem;
   }
 
   .flexbox {
@@ -30,40 +31,24 @@ export const StyledHeader = styled.header`
     gap: 0.5rem;
   }
 
-  button {
-    background-color: var(--color-white);
-
-    :hover {
-      filter: grayscale(100%) sepia(100%) hue-rotate(113deg);
-    }
-  }
-
   a {
+    background-color: var(--color-white);
     cursor: pointer;
-    position: relative;
 
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 
-    height: 60px;
-    width: 60px;
-    padding-left: 1rem;
-
-    margin-right: 1rem;
+    height: 45px;
+    width: 80px;
+    border-radius: 8px;
   }
 
   a > span {
-    position: absolute;
-    right: 0;
-    top: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
 
-    font-size: 0.875rem;
-    font-weight: 900;
-
-    padding: 0.3125rem;
-    border-radius: 0.4375rem;
-
-    color: var(--color-white);
-    background-color: var(--color-primary);
+    color: var(--color-black);
   }
 `;

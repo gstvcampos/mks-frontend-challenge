@@ -19,16 +19,16 @@ export const Header = () => {
     <StyledHeader>
       <div className="container">
         <div className="logo">
-          <StyledTitle>MKS</StyledTitle><StyledSubTitle>Sistemas</StyledSubTitle>
+          <StyledTitle>MKS</StyledTitle>
+          <StyledSubTitle>Sistemas</StyledSubTitle>
         </div>
 
-        <div className="button">
-          <a onClick={handleOpenModal}>
-            <span>{items}</span>
-            <FaShoppingCart color="#000000" size={25}></FaShoppingCart>
-          </a>
-        </div>        
-          {/* {isOpen ? (
+        <a onClick={handleOpenModal}>
+          <FaShoppingCart color="#000000" size={25}></FaShoppingCart>
+          <span>{items}</span>
+        </a>
+
+        {/* {isOpen ? (
               <Modal
                 setIsOpen={setIsOpen}
                 listShopping={listShopping}
@@ -36,7 +36,6 @@ export const Header = () => {
               ></Modal>
             ) : null} */}
       </div>
-
     </StyledHeader>
   );
 };
