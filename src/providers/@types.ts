@@ -9,8 +9,7 @@ export interface IProduct {
     updatedAt: string;
 }
 
-export interface IProductShop {
-    product: IProduct;
+export interface IProductShop extends IProduct {
     quantity: number;
 }
 

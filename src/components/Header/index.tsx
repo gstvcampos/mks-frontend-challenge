@@ -1,8 +1,8 @@
 "use client";
 
+import { useContext } from "react";
 import { ProductsContext } from "@/providers/ProductsContext";
 import { StyledSubTitle, StyledTitle } from "@/styles/Typography";
-import { useContext } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { StyledHeader } from "./style";
 
