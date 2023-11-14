@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/services/api";
 import { IProductContext, IProductShop } from "./@types";
@@ -8,8 +8,8 @@ import { IProductContext, IProductShop } from "./@types";
 export const ProductsContext = createContext({} as IProductContext);
 
 export const ProductsProvider = ({ children }: { children: React.ReactNode }) => {
-  const storedShopList = JSON.parse(localStorage.getItem('shopList')) || [];
-  const [shopList, setShopList] = useState<IProductShop[]>(storedShopList);
+
+  const [shopList, setShopList] = useState<IProductShop[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { isLoading, data:productsList } = useQuery({
     queryKey: ["products"],
@@ -20,10 +20,6 @@ export const ProductsProvider = ({ children }: { children: React.ReactNode }) =>
       return data.products
     },
   });
-
-  useEffect(() => {
-    localStorage.setItem('shopList', JSON.stringify(shopList));
-  }, [shopList]);
 
   return (
     <ProductsContext.Provider
