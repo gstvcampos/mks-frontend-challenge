@@ -20,5 +20,5 @@ export interface IProductContext {
     isOpen: boolean;
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     shopList: IProductShop[];
-    setshopList: React.Dispatch<React.SetStateAction<IProductShop[]>>;
+    setShopList: React.Dispatch<React.SetStateAction<IProductShop[]>>;
 }
