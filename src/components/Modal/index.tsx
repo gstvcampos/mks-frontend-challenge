@@ -7,6 +7,7 @@ import { useOutClick } from "@/hooks/useOutClick";
 import { ModalOverlay, ModalWrapper, StyledUl } from "./style";
 import { IoIosCloseCircle } from "react-icons/io";
 import { FormattedPrice } from "../FormattedPrice";
+import { StyledTotal } from "@/styles/Typography";
 
 export const Modal = () => {
   const modalRef = useOutClick(() => {
@@ -28,8 +29,8 @@ export const Modal = () => {
       <ModalWrapper ref={modalRef}>
         <header>
           <h2>Carrinho de compras</h2>
-          <button onClick={() => setIsOpen(false)} ref={buttonRef}>
-            <IoIosCloseCircle size={20} color="#000000"></IoIosCloseCircle>
+          <button className="btn__close" onClick={() => setIsOpen(false)} ref={buttonRef}>
+            <IoIosCloseCircle size={40} color="#000000"></IoIosCloseCircle>
           </button>
         </header>
 
@@ -41,11 +42,11 @@ export const Modal = () => {
 
         <footer>
           <div className="total__container">
-            <h3>Total</h3>
-            <FormattedPrice price={total} />
+            <StyledTotal>Total</StyledTotal>
+            <StyledTotal><FormattedPrice price={total} /></StyledTotal>
           </div>
 
-          <button>Finalizar Compra</button>
+          <button className="btn__buy">Finalizar Compra</button>
         </footer>
       </ModalWrapper>
     </ModalOverlay>

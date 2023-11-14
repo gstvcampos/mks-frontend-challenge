@@ -3,85 +3,59 @@ import styled from "styled-components";
 export const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 9999;
 `
 
 export const ModalWrapper = styled.div`
   position: fixed;
-  top: 50%;
-  left: 50%;
-
-  
-  max-width: 500px;
-  min-width: 375px;
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 100%;
+  background-color: var(--color-primary);
 
   header{
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    max-width: 100%;
+    height: 110px;
     padding: .8125rem 1.375rem;
-    border-radius: 5px 5px 0px 0px;
+  }
 
-    background-color: var(--color-primary);
+  .btn__close {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
   }
 
   footer {
-    padding: 0;
-    width: 100%;
-    height: 150px;
-    background-color: white;
+    position: fixed;
+    bottom: 0;
   }
 
-  .line__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    padding-top: 18px;
-    padding-bottom: 15px;
-  }
-
-  .line {
-    background-color: var(--color-grey-100);
-    height: 2px;
-    width: 90%;
-  }
-  
-  .value__container {
+  .total__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-inline: 1.5625rem;
-    margin-bottom: 1.25rem;
+    padding: 2rem 2rem;
   }
 
-  .remover__button {
-    font-size: 1rem;
-    font-weight: 600;
+  .btn__buy {
+    border: none;
 
-    padding: 1.25rem;
+    font-size: 1.75rem;
+    font-weight: 700;
 
-    width: 90%;
-    margin: 0 auto;
+    padding: 2rem 8.52rem;
     
-    color: var(--color-grey-300);
-    background-color: var(--color-grey-100);
-    border: 1px solid var(--color-grey-100);   
-    border-radius: 0.5rem;
-
-    :hover {
-      color: var(--color-white);
-      background-color: var(--color-primary);
-      border-color: var(--color-primary);
-    }
+    color: var(--color-white);
+    background-color: var(--color-black);
   }
 `
 
@@ -91,18 +65,4 @@ export const StyledUl = styled.ul`
   
   list-style: none;
   gap: 1.125rem;
-  
-  width: 100%;
-  max-height: 264px;
-  overflow: auto;
-
-  padding: 0;
-  background-color: white;
-
-  img {
-    align-self: center;
-    max-width: 40%;
-    max-height: 40%;
-    width: 100%;
-  }
 `
