@@ -3,11 +3,14 @@ import styled from "styled-components";
 export const StyledLi = styled.li`
   display: flex;
   flex-direction: column;
-  width: 220px;
-  height: 290px;
-  box-shadow: 2px 2px 5px black;
+  text-align: start;
+  width: 225px;
+  height: 320px;
 
+  box-shadow: 0px 2px 8px 0px #00000022;
   border-radius: 8px;
+
+  position: relative;
 
   img {
     max-width: 100%;
@@ -28,6 +31,11 @@ export const StyledLi = styled.li`
 
     gap: 0.5rem;
     padding: 1.25rem;
+  }
+
+  button {
+    position: absolute;
+    bottom: 0;
   }
 
 `

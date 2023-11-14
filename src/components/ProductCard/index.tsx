@@ -5,6 +5,7 @@ import { StyledButtonDefault } from "@/styles/Button";
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { useContext } from "react";
 import { ProductsContext } from "@/providers/ProductsContext";
+import { StyledText, StyledTitleProduct } from "@/styles/Typography";
 
 export const ProductCard = ({ product }) => {
   const { listShopping, setListShopping } = useContext(ProductsContext);
@@ -17,11 +18,13 @@ export const ProductCard = ({ product }) => {
         </div>
 
         <div className="div__information">
-          <h4>{product.name}</h4>
-          <p>{product.description}</p>
-          <p>
-            <FormattedPrice price={product.price} />
-          </p>
+          <div>
+            <StyledTitleProduct>{product.name}</StyledTitleProduct>
+            <p>
+              <FormattedPrice price={product.price} />
+            </p>
+          </div>
+            <StyledText>{product.description}</StyledText>
           <StyledButtonDefault
             onClick={() => {
               setListShopping([...listShopping, product]);

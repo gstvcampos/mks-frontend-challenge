@@ -11,3 +11,14 @@ export const StyledSubTitle = styled.h3`
     font-weight: 300;    
     color: var(--color-white);
 `
+export const StyledTitleProduct = styled.h3`
+    font-size: 1rem;
+    font-weight: 400;    
+    color: var(--color-gray-100);
+`
+
+export const StyledText = styled.p`
+    font-size: .625rem;
+    font-weight: 300;
+    color: var(--color-gray-100);
+`
