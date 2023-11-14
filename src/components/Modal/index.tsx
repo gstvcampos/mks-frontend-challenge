@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import { ProductsContext } from "@/providers/ProductsContext";
-import { useKeyDowm } from "@/hooks/useKeydown";
+import { useKeyDown } from "@/hooks/useKeydown";
 import { useOutClick } from "@/hooks/useOutClick";
 import { ModalOverlay, ModalWrapper, StyledUl } from "./style";
 import { IoIosCloseCircle } from "react-icons/io";
@@ -15,7 +15,7 @@ export const Modal = () => {
     setIsOpen(false);
   });
 
-  const buttonRef = useKeyDowm("Escape", (element) => {
+  const buttonRef = useKeyDown("Escape", (element) => {
     element.click();
   });
 
